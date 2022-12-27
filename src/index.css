@@ -1,13 +1,198 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ================== GOOGLE FONTS ================== */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+/* ================== VARIABLE CSS ================== */
+:root {
+  /* ==================== Colors =====================*/
+  --primary-blue: hsl(246, 80%, 60%);
+  --primary-color-work: hsl(15, 100%, 70%);
+  --primary-color-play: hsl(195, 74%, 62%);
+  --primary-color-study: hsl(348, 100%, 68%);
+  --primary-color-exercise: hsl(145, 58%, 55%);
+  --primary-color-social: hsl(264, 64%, 52%);
+  --primary-color-self-care: hsl(43, 84%, 65%);
+  --neutral-dark-blue-100: hsl(226, 43%, 10%);
+  --neutral-dark-blue-200: hsl(235, 46%, 20%);
+  --neutral-desaturated-blue: hsl(235, 45%, 61%);
+  --neutral-pale-blue: hsl(236, 100%, 87%);
+  --primary-color-white: hsl(0, 0%, 100%);
+
+  /* ============= Font and typographyy ==============*/
+  --primary-font: 'Rubik', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ====================== BASE ====================== */
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body, h1, p {
+  margin: 0;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+body {
+  font-family: var(--primary-font);
+  background-color: var(--neutral-dark-blue-100);
+  color: var(--neutral-desaturated-blue);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+main {
+  display: grid;
+  place-content: center;
+  gap: 1.875rem;
+  max-width: 1120px;
+}
+
+aside {
+  background-color: var(--neutral-dark-blue-200);
+  border-radius: 1rem;
+}
+
+.aside-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--primary-blue);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.aside-image {
+  width: 4.5rem;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.title {
+  font-weight: 300;
+  color: var(--primary-color-white);
+}
+
+.description {
+  font-size: 14px;
+  color: var(--neutral-pale-blue);
+}
+
+.aside-bottom {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1.5rem;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:hover+.time {
+  color: white;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked+.time {
+  color: white;
+}
+
+.card {
+  background-position: 95% -5%;
+  background-repeat: no-repeat;
+  border-radius: 1rem 1rem 1.2rem 1.2rem;
+  padding-top: 2.4rem;
+}
+
+.card-body {
+  background-color: var(--neutral-dark-blue-200);
+  border-radius: 1rem;
+  padding: 2rem 1.3rem;
+}
+
+.card-body:hover {
+  background-color: #292f70;
+  cursor: pointer;
+}
+
+.card-body-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-body-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--primary-color-white);
+}
+
+.hours {
+  font-size: 1.875rem;
+  font-weight: 400;
+  color: var(--primary-color-white);
+}
+
+.previous-hours {
+  font-size: 0.9375rem;
+  color: var(--neutral-pale-blue);
+}
+
+@media screen and (min-width: 1140px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  aside {
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  
+  .aside-top {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 5rem;
+  }
+
+  .aside-image {
+    margin-bottom: 2.5rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .aside-bottom {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.875rem;
+  }
+  
+  .card-body-bottom{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .hours {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-top: 1.5rem;
+  }
+
+  .previous-hours {
+    margin-top: 0.6rem;
+  }
 }

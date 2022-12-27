@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import Aside from './components/Aside'
+import Card from './components/Card.js'
+import data from "./data"
 
 function App() {
+  const [time, setTime] = useState("daily")
+  
+  const cardElements = data.map(card =>
+      <Card key={card.title} item={card} time={time}/>
+  )
+  
+  function handleChange(event) {
+      setTime(event.target.value)
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <main>
+          <Aside time={time} handleChange={handleChange}/>
+          {cardElements}
+      </main>
+  )
 }
 
 export default App;
